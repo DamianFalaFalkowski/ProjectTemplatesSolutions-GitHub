@@ -33,6 +33,7 @@ namespace $safeprojectname$.Tools
 
         public static async Task<Geoposition> GetPossition()
         {
+            IsLocationServicesAllowed = await checkPermission();
             if (IsLocationServicesAllowed)
             {
                 if (!isGeolocatorBusy)
@@ -80,6 +81,19 @@ namespace $safeprojectname$.Tools
             catch (Exception)
             {
                 throw new NotImplementedException("geolocalizating failed");
+            }
+        }
+
+        private static async Task<bool> checkPermission()
+        {
+            var status = await Geolocator.RequestAccessAsync();
+            if (status == GeolocationAccessStatus.Allowed)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }
