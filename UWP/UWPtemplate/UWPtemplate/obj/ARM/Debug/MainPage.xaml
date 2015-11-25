@@ -1,0 +1,41 @@
+﻿<Page x:ConnectionId='1'
+    x:Class="UWPtemplate.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWPtemplate"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:UWPtemplate.Controls"
+    mc:Ignorable="d"
+                         
+                                  >
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <SplitView x:ConnectionId='2' IsPaneOpen="{Binding Path=IsPaneOpen}"
+                   DisplayMode="CompactInline"
+                   ManipulationMode="TranslateX" 
+                                                                      
+                                                                  
+                                                                          >
+            <SplitView.Pane>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <!--BUTTON TOOPEN AND CLOSE PANE-->
+                    <Button x:ConnectionId='3'                                     
+                            Content="O/C"
+                            Width="48"/>                
+                    <!--PANE CONTROL-->
+                    <controls:Pane Grid.Row="1"/>
+                </Grid>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <!--NAVIGATE BETWEN PAGES BY THIS FRAME(refference in App.xaml.cs)-->
+                <Frame x:ConnectionId='4'                       />
+            </SplitView.Content>
+        </SplitView>
+    </Grid>
+</Page>
+

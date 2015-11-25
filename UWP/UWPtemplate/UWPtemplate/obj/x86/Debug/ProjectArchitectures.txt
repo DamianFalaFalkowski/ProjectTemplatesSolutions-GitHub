@@ -1,0 +1,1 @@
+C:\Users\Damian\documents\visual studio 2015\Projects\UWPtemplate\UWPtemplate\UWPtemplate.csproj;x86
